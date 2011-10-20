@@ -15,8 +15,13 @@ your user only deal with their local timezone.
 
 ## How to use ##
    
-To automatically localize a form have it subclass either the Form or ModelForm class, and pass in a pytz timezone as the timezone kwarg when creating the form instance.
+To automatically localize a form have it subclass either the UTCForm or UTCModelForm class, and pass in a pytz timezone as the timezone kwarg when creating the form instance.
 
+    class MyForm(UTCModelForm):
+        """
+        Form for editing something rockin
+        """
+        pass
     form = MyForm(request.POST, timezone=timezone)
 
 That will ensure that submitted and rejected forms are localized. 
