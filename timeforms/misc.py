@@ -2,15 +2,6 @@ import new
 import pytz
 import datetime
 
-def add_method(cls, func, method_name):
-    """Patches a class with an instance using the given values"""
-
-    method = new.instancemethod(func, cls, cls)
-    name = method_name
-    setattr(cls, name, method)    
-    return name
-
-
 def convert_input_to_utc(timedate, timezone):
     if not timezone or not timedate:
         return timedate
