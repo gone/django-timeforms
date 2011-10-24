@@ -2,7 +2,7 @@ __doc__ = """
 An app that provides forms that automatically convert timezones into utc on submit, and (almost) automatically converts timezones into the local time
 on render
 
-See the README file for details, usage info, and a list of gotchas.
+See the README file for details and usage info.
 """
 
 from setuptools import setup
@@ -18,8 +18,9 @@ setup(
     keywords='django timezones time',
     url='https://github.com/gone/django-timeforms',
     packages=['timeforms'],
-    package_data={},
+    test_suite = "test",
     long_description=__doc__,
+    requires= ['Django'],
     classifiers=[
     	'Development Status :: 5 - Production/Stable',
         'License :: OSI Approved :: GNU General Public License (GPL)',
