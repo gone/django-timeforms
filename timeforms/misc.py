@@ -1,8 +1,8 @@
-import new
 import pytz
 import datetime
 
 def convert_input_to_utc(timedate, timezone):
+    """ Converts the input datetime into an unstamped UTC datetime"""
     if not timezone or not timedate:
         return timedate
     if isinstance(timedate, basestring):
@@ -19,6 +19,7 @@ def convert_input_to_utc(timedate, timezone):
     return timedate
 
 def convert_initial_to_local(timedate, timezone):
+    """Converts a utc datetime into a stamped localized datetime"""
     if not timezone or not timedate:
         return timedate
     if isinstance(timedate, basestring):
@@ -27,8 +28,8 @@ def convert_initial_to_local(timedate, timezone):
     timedate = timedate.astimezone(timezone)
     return timedate
 
-def convert_output_to_local(timedate, timezone):
+def convert_output_to_local(timedate, timezone, format="%m/%d/%Y %H:%M"):
+    """Converts a utc datetime into a localized datetime string in the provided format"""
     timedate = convert_initial_to_local(timedate, timezone)
-    
-    return datetime.datetime.strftime(timedate, "%m/%d/%Y %H:%M")
+    return datetime.datetime.strftime(timedate, format)
 
